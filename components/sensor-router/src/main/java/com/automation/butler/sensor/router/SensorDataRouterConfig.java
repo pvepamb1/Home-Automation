@@ -1,6 +1,5 @@
 package com.automation.butler.sensor.router;
 
-import com.automation.butler.enums.SensorType;
 import com.automation.butler.ldr.LdrConfigService;
 import com.automation.butler.ldr.LdrService;
 import com.automation.butler.sensor.Sensor;
@@ -18,15 +17,15 @@ import java.util.List;
 public class SensorDataRouterConfig {
 
     @Bean
-    public List<SensorService<? extends CrudRepository, ? extends Sensor>> serviceList(LdrService ldrService) {
-        List<SensorService<? extends CrudRepository, ? extends Sensor>> services = new ArrayList<>();
+    public List<SensorService<? extends CrudRepository<?,?>, ? extends Sensor>> serviceList(LdrService ldrService) {
+        List<SensorService<? extends CrudRepository<?,?>, ? extends Sensor>> services = new ArrayList<>();
         services.add(ldrService);
         return services;
     }
 
     @Bean
-    public List<SensorConfigService<? extends CrudRepository, ? extends SensorConfig>> configServiceList(LdrConfigService ldrConfigService) {
-        List<SensorConfigService<? extends CrudRepository, ? extends SensorConfig>> configServices = new ArrayList<>();
+    public List<SensorConfigService<? extends CrudRepository<?,?>, ? extends SensorConfig>> configServiceList(LdrConfigService ldrConfigService) {
+        List<SensorConfigService<? extends CrudRepository<?,?>, ? extends SensorConfig>> configServices = new ArrayList<>();
         configServices.add(ldrConfigService);
         return configServices;
     }
